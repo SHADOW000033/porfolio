@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="image" href="https://source.unsplash.com/1600x900/?technology,developer&auto=format&fit=crop&w=1600&q=80">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class' }
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      sunIcon.classList.toggle('hidden', !isDark);
+      moonIcon.classList.toggle('hidden', isDark);
+    }
+    window.onload = () => {
+      const html = document.documentElement;
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      const isDark = localStorage.getItem('theme') === 'dark';
+      if (isDark) { html.classList.add('dark'); sunIcon?.classList.remove('hidden'); moonIcon?.classList.add('hidden'); }
+      else { html.classList.remove('dark'); sunIcon?.classList.add('hidden'); moonIcon?.classList.remove('hidden'); }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 ease-in-out">
+  <header class="fixed w-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-md z-50 transition-colors duration-500">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-xl font-bold text-blue-600 dark:text-blue-400">MyPortfolio</h1>
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="#hero" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+      </ul>
+      <div class="flex items-center space-x-4">
+        <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6 text-yellow-500" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m8.485-8.485h1M4.515 12.515h-1M16.95 7.05l.707-.707M6.343 17.657l-.707.707M16.95 16.95l.707.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+          <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="currentColor"
+               viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>
+        </button>
+        <button id="menu-btn" class="md:hidden p-2 focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+      <ul class="flex flex-col items-center space-y-4 py-4">
+<li><a href="#hero" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+  <section id="hero" class="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
+           style="background-image: url('bggg.avif');">
+    <div class="bg-black bg-opacity-60 absolute inset-0"></div>
+    <div class="relative z-10 max-w-2xl px-6 text-white" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I’m Daniel a Frontend Developer</h2>
+      <p class="mb-6">I build fast, modern, and responsive websites that deliver real value.</p>
+      <a href="#projects" class="bg-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">See My Work</a>
+    </div>
+  </section>
+  <section id="about" class="py-20 max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+      I’m a passionate frontend developer with a love for creating beautiful, modern, and user-friendly websites. 
+      I specialize in HTML, CSS, JavaScript, and Tailwind CSS, and I enjoy building projects that help businesses grow.
+    </p>
+  </section>
+<section id="stats" class="py-20 bg-gray-100 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="fade-up">
+    <div>
+      <h3 class="text-4xl font-bold text-blue-600 dark:text-blue-400 counter" data-target="0">0</h3>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">Projects Completed</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-600 dark:text-blue-400 counter" data-target="0">0</h3>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">Happy Clients</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-600 dark:text-blue-400 counter" data-target="1">0</h3>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">Years Experience</p>
+    </div>
+    <div>
+      <h3 class="text-4xl font-bold text-blue-600 dark:text-blue-400 counter" data-target="2">0</h3>
+      <p class="mt-2 text-gray-600 dark:text-gray-400">Certifications</p>
+    </div>
+  </div>
+</section>
+<section style="display: none;" id="testimonials" class="py-20 bg-white dark:bg-gray-800">
+  <div class="max-w-6xl mx-auto px-6 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-12">What Clients Say</h2>
+    <div class="relative max-w-3xl mx-auto">
+      <div id="testimonial-slides" class="overflow-hidden">
+        <div class="testimonial-slide transition-opacity duration-700 opacity-100">
+          <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-6">
+            “Working with this developer was amazing. The project was delivered on time,
+            exceeded expectations, and the communication was great!”
+          </p>
+          <h4 class="font-bold text-xl">Sarah Johnson</h4>
+          <span class="text-gray-500 dark:text-gray-400">Startup Founder</span>
+        </div>
+        <div class="testimonial-slide transition-opacity duration-700 opacity-0 hidden">
+          <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-6">
+            “He built us a sleek, fast, and modern website. I would definitely recommend
+            him to anyone looking for quality frontend work.”
+          </p>
+          <h4 class="font-bold text-xl">Michael Lee</h4>
+          <span class="text-gray-500 dark:text-gray-400">Business Owner</span>
+        </div>
+        <div class="testimonial-slide transition-opacity duration-700 opacity-0 hidden">
+          <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-6">
+            “Professional, creative, and reliable. One of the best developers I’ve worked with.”
+          </p>
+          <h4 class="font-bold text-xl">Emily Carter</h4>
+          <span class="text-gray-500 dark:text-gray-400">Marketing Manager</span>
+        </div>
+      </div>
+      <div class="flex justify-center space-x-3 mt-6">
+        <button class="testimonial-btn w-3 h-3 rounded-full bg-blue-600"></button>
+        <button class="testimonial-btn w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        <button class="testimonial-btn w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+      </div>
+    </div>
+  </div>
+</section>
+ <section id="projects" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-12" data-aos="fade-up">My Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-all duration-500 transform" data-aos="fade-up">
+          <img src="porfolio.png" alt="Project 1" class="w-full" loading="lazy">
+          <div class="p-5">
+            <h3 class="font-bold text-xl mb-2">Portfolio Website</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">A modern responsive portfolio.</p>
+            <a href="https://daniel-beryl-eight.vercel.app/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Live Demo</a>
+          </div>
+        </div>
+       
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-all duration-500 transform" data-aos="fade-up" data-aos-delay="300">
+          <img src="Web2.png" alt="Project 3" class="w-full" loading="lazy">
+          <div class="p-5">
+            <h3 class="font-bold text-xl mb-2">E-Commerce Store</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">A fast and responsive online shop with Next.js & Tailwind.</p>
+            <a href="https://shadow-shopping.vercel.app/" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Live Demo</a>
+          </div>
+        </div>
+         <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-all duration-500 transform" data-aos="fade-up" data-aos-delay="150">
+          <img src="not.avif" alt="Project 2" class="w-full" loading="lazy">
+          <div class="p-5">
+            <h3 class="font-bold text-xl mb-2">Coming soon!!!!!</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Coming soon!!!!!!!.</p>
+            <a href="https://your-demo-link2.com" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
+  <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+    <p class="mb-10 text-gray-600 dark:text-gray-400">
+      Have a project idea or just want to say hello? Drop me a message below 👇
+    </p>
+    <div id="form-alert" class="hidden mb-6 p-4 rounded-lg font-medium"></div>
+    <form id="contact-form" action="https://formspree.io/f/movkajgd" method="POST"
+class="max-w-xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 space-y-4">
+      <div>
+        <label for="name" class="block text-left mb-2 font-medium">Your Name</label>
+        <input type="text" id="name" name="name" required 
+               class="w-full px-4 py-3 rounded-lg border dark:border-gray-700 
+                      bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 
+                      focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+      </div>
+      <div>
+        <label for="email" class="block text-left mb-2 font-medium">Your Email</label>
+        <input type="email" id="email" name="email" required 
+               class="w-full px-4 py-3 rounded-lg border dark:border-gray-700 
+                      bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 
+                      focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+      </div>
+      <div>
+        <label for="message" class="block text-left mb-2 font-medium">Your Message</label>
+        <textarea id="message" name="message" rows="5" required 
+                  class="w-full px-4 py-3 rounded-lg border dark:border-gray-700 
+                         bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 
+                         focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+      </div>
+      <button type="submit" 
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 
+                     rounded-lg transition-colors duration-300">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+  <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <h2 class="text-xl font-bold text-blue-600 dark:text-blue-400">Daniel.dev</h2>
+        <p class="mt-3 text-gray-600 dark:text-gray-400 text-sm">
+          Building modern, fast, and responsive websites with love ❤️
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
+          <li><a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a></li>
+          <li><a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">Follow Me</h3>
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="https://github.com/SHADOW000033" target="_blank" aria-label="GitHub"
+             class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .5C5.648.5.5 5.648.5 12c0 5.087 3.292 9.393 7.865 10.915.575.107.785-.25.785-.554v-1.933c-3.2.696-3.872-1.542-3.872-1.542-.523-1.328-1.278-1.681-1.278-1.681-1.045-.716.08-.701.08-.701 1.155.082 1.762 1.187 1.762 1.187 1.028 1.762 2.695 1.252 3.352.957.103-.744.403-1.253.732-1.541-2.553-.29-5.236-1.278-5.236-5.683 0-1.255.446-2.282 1.183-3.086-.119-.29-.512-1.454.112-3.031 0 0 .964-.309 3.16 1.179a10.94 10.94 0 012.875-.387c.975.005 1.955.132 2.875.387 2.196-1.488 3.16-1.179 3.16-1.179.624 1.577.231 2.741.113 3.031.737.804 1.183 1.831 1.183 3.086 0 4.416-2.688 5.388-5.251 5.673.416.358.786 1.066.786 2.148v3.182c0 .305.21.664.791.552C20.71 21.387 24 17.084 24 12c0-6.352-5.148-11.5-12-11.5z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-oketoki-emmanuel-52a821280?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"
+             class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.452 20.452H17.2V14.8c0-1.345-.025-3.073-1.873-3.073-1.874 0-2.162 1.463-2.162 2.972v5.753H9.01V9h3.115v1.561h.044c.434-.82 1.494-1.686 3.073-1.686 3.289 0 3.897 2.164 3.897 4.977v6.6zM5.337 7.433a1.814 1.814 0 110-3.628 1.814 1.814 0 010 3.628zM6.758 20.452H3.916V9h2.842v11.452z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/daniel_dev117?t=vcqjOlU_i8VQOKHOJvAVVA&s=09" target="_blank" aria-label="Twitter"
+             class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center py-4 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400">
+      © 2025 My Portfolio. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
