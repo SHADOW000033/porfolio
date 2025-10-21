@@ -4,7 +4,7 @@
     };
     
     const counters = document.querySelectorAll(".counter");
-  const speed = 150; // smaller = faster
+  const speed = 1; // smaller = faster
 
   const animateCounters = () => {
     counters.forEach(counter => {
@@ -96,4 +96,5 @@ try {
       formAlert.textContent = "❌ Network error. Try again later.";
       formAlert.className = "mb-6 p-4 rounded-lg font-medium bg-red-100 text-red-700";
     }
+
   });
