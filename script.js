@@ -15,7 +15,7 @@
 
         if (count < target) {
           counter.innerText = count + increment;
-          setTimeout(updateCount, 100);
+          setTimeout(updateCount, 1000);
         } else {
           counter.innerText = target;
         }
@@ -98,5 +98,6 @@ try {
     }
 
   });
+
 
 
