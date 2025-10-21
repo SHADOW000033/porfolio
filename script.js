@@ -4,7 +4,7 @@
     };
     
     const counters = document.querySelectorAll(".counter");
-  const speed = 1; // smaller = faster
+  const speed = 150; // smaller = faster
 
   const animateCounters = () => {
     counters.forEach(counter => {
@@ -15,7 +15,7 @@
 
         if (count < target) {
           counter.innerText = count + increment;
-          setTimeout(updateCount, 30);
+          setTimeout(updateCount, 3000);
         } else {
           counter.innerText = target;
         }
@@ -98,3 +98,4 @@ try {
     }
 
   });
+
